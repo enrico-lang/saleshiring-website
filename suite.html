@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesHiring Suite – Versicherung gegen Fehlbesetzungen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-teal: #1a3a4a;
+            --teal-dark: #0f2833;
+            --orange: #e85a30;
+            --orange-light: #ff6b42;
+            --orange-dark: #d14a22;
+            --cream: #f8f6f3;
+            --white: #ffffff;
+            --gray-100: #f4f4f5;
+            --gray-200: #e4e4e7;
+            --gray-600: #52525b;
+            --gray-800: #27272a;
+            --green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            background: var(--orange);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subheadline {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .hero-roi {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-roi-text {
+            font-size: 1.3rem;
+            color: var(--orange-light);
+            font-weight: 700;
+        }
+
+        .hero-cta {
+            background: var(--orange);
+            color: white;
+            padding: 1.6rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 45px rgba(232, 90, 48, 0.6);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Problem */
+        .problem {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .problem-scenarios {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .scenario {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .scenario-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+
+        .scenario-desc {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .scenario-cost {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Solution */
+        .solution {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .solution-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .solution-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .solution-intro {
+            font-size: 1.3rem;
+            text-align: center;
+            color: var(--gray-600);
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(26, 58, 74, 0.08);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--orange);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-works {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .how-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .how-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .workflow-step {
+            text-align: center;
+        }
+
+        .workflow-number {
+            width: 70px;
+            height: 70px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+        }
+
+        .workflow-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-desc {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* ROI Calculator */
+        .roi {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .roi-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .roi-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        .roi-calc {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .roi-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
+        }
+
+        .roi-line:last-child {
+            border-bottom: none;
+            font-size: 1.5rem;
+            font-weight: 900;
+            padding-top: 2rem;
+        }
+
+        .roi-value {
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--gray-100);
+            padding: 5rem 2rem;
+        }
+
+        .proof-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .proof-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(26, 58, 74, 0.08);
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--gray-800);
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        .testimonial-result {
+            background: var(--green);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 700;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .pricing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-intro {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-note {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-note-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-note-text {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .pricing-cta {
+            background: var(--deep-teal);
+            color: white;
+            padding: 1.6rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .pricing-cta:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta-text {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-button {
+            background: var(--orange);
+            color: white;
+            padding: 1.6rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 45px rgba(232, 90, 48, 0.6);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--orange);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: var(--green);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        @media (max-width: 968px) {
+            .benefits-grid,
+            .workflow,
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Für Unternehmen mit 3+ Sales-Hires/Jahr</div>
+            <h1>Die Suite ist keine Software.<br>Sie ist eine Versicherung.</h1>
+            <p class="hero-subheadline">
+                Gegen Fehlbesetzungen. Gegen Umsatzverlust. Gegen Bauchentscheidungen.
+            </p>
+            
+            <div class="hero-roi">
+                <p class="hero-roi-text">
+                    Ab 2–3 Einstellungen pro Jahr rechnet sich die Suite sofort.
+                </p>
+            </div>
+
+            <button onclick="openModal()" class="hero-cta">Kostenloses Strategiegespräch</button>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem">
+        <div class="problem-content">
+            <h2>Was passiert, wenn du KEIN System hast?</h2>
+
+            <div class="problem-scenarios">
+                <div class="scenario">
+                    <div class="scenario-title">Szenario 1: Der sympathische Fehlgriff</div>
+                    <div class="scenario-desc">
+                        Kandidat wirkt perfekt im Interview. Team ist begeistert. Nach 4 Monaten klar: Kein Drive, keine Zahlen. Kündigung, Neustart.
+                    </div>
+                    <div class="scenario-cost">Kosten: 60.000+ EUR</div>
+                </div>
+
+                <div class="scenario">
+                    <div class="scenario-title">Szenario 2: Der ewige Vergleich</div>
+                    <div class="scenario-desc">
+                        5 Kandidaten, 5 Meinungen im Team. Diskussionen ohne Fakten. Monatelange Entscheidungsfindung. Top-Kandidat springt ab.
+                    </div>
+                    <div class="scenario-cost">Kosten: Verlorene Umsätze + 3 Monate Verzögerung</div>
+                </div>
+
+                <div class="scenario">
+                    <div class="scenario-title">Szenario 3: Der Bauchgefühl-Marathon</div>
+                    <div class="scenario-desc">
+                        Jede Einstellung ist ein Glücksspiel. Keine Standards, keine Vergleichbarkeit. Hohe Fluktuation wird zur Normalität.
+                    </div>
+                    <div class="scenario-cost">Kosten: 200.000+ EUR/Jahr bei 5 Hires</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+        <div class="solution-content">
+            <h2>Was die Suite dir gibt</h2>
+            <p class="solution-intro">
+                Kein Tool-Wirrwarr. Kein Feature-Overkill. Nur das, was du brauchst, um jede Sales-Einstellung sicher zu machen.
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">1</div>
+                    <div class="benefit-title">Vergleich statt Bauchgefühl</div>
+                    <div class="benefit-desc">
+                        Alle Kandidaten durch dasselbe System. Objektive Metriken. Klare Vergleichbarkeit.
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">2</div>
+                    <div class="benefit-title">Sicherheit für Entscheider</div>
+                    <div class="benefit-desc">
+                        Keine Bauchentscheidungen mehr. Jede Einstellung datenbasiert abgesichert.
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">3</div>
+                    <div class="benefit-title">Klarheit für das Team</div>
+                    <div class="benefit-desc">
+                        Diskussionen enden. Facts schlagen Meinungen. Transparente Entscheidungen.
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">4</div>
+                    <div class="benefit-title">Standards im Prozess</div>
+                    <div class="benefit-desc">
+                        Einmal aufgesetzt, immer wiederholbar. Kein Chaos bei jeder neuen Stelle.
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">5</div>
+                    <div class="benefit-title">Dokumentation & Reporting</div>
+                    <div class="benefit-desc">
+                        Jede Einstellung nachvollziehbar. Compliance sauber. Keine „Warum haben wir das so gemacht?"-Fragen.
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">6</div>
+                    <div class="benefit-title">Persönlicher Support</div>
+                    <div class="benefit-desc">
+                        Kein anonymes Tool. Direkter Zugang zum Team. Beratung bei kritischen Entscheidungen.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-works">
+        <div class="how-content">
+            <h2>So läuft es ab</h2>
+
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-title">Strategiegespräch</div>
+                    <div class="workflow-desc">Wir verstehen deine Hiring-Situation</div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-title">Setup</div>
+                    <div class="workflow-desc">System wird auf deine Prozesse angepasst</div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-title">Onboarding</div>
+                    <div class="workflow-desc">Dein Team lernt das System in 2h</div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="workflow-number">4</div>
+                    <div class="workflow-title">Go Live</div>
+                    <div class="workflow-desc">Erste Kandidaten laufen durch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi">
+        <div class="roi-content">
+            <h2>Beispiel-Rechnung</h2>
+
+            <div class="roi-calc">
+                <div class="roi-line">
+                    <span>5 Sales-Hires pro Jahr</span>
+                    <span class="roi-value">—</span>
+                </div>
+                <div class="roi-line">
+                    <span>1 Fehlbesetzung vermieden</span>
+                    <span class="roi-value">60.000 EUR gespart</span>
+                </div>
+                <div class="roi-line">
+                    <span>Suite Investition (Jahr 1)</span>
+                    <span class="roi-value">~15.000 EUR</span>
+                </div>
+                <div class="roi-line">
+                    <span>ROI</span>
+                    <span class="roi-value">300%+</span>
+                </div>
+            </div>
+
+            <p style="font-size: 1.2rem; margin-top: 2rem;">
+                Du brauchst nur EINE vermiedene Fehlbesetzung, damit sich die Suite rechnet.
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="proof-content">
+            <h2>Was Kunden sagen</h2>
+
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "Wir haben vorher jedes Quartal jemanden eingestellt – und jedes zweite Mal war es ein Fehlgriff. Mit der Suite: 8 Hires, 7 Treffer. Das erste Mal, dass wir Kontrolle haben."
+                    </p>
+                    <p class="testimonial-author">— VP Sales, Tech-Scale-up</p>
+                    <div class="testimonial-result">87% Hit-Rate statt 50%</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "Was mich überzeugt hat: Kein Feature-Bullshit. Nur das, was funktioniert. Wir sparen pro Jahr mindestens eine Fehlbesetzung – das sind 70k+ EUR."
+                    </p>
+                    <p class="testimonial-author">— Geschäftsführer, Mittelstand</p>
+                    <div class="testimonial-result">70.000 EUR/Jahr gespart</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="pricing-content">
+            <h2>Investition</h2>
+            <p class="pricing-intro">
+                Die Suite ist individuell auf dein Unternehmen angepasst. Keine Standard-Pakete.
+            </p>
+
+            <div class="pricing-note">
+                <div class="pricing-note-title">Wie viel kostet die Suite?</div>
+                <div class="pricing-note-text">
+                    Das hängt von deiner Hiring-Frequenz, Teamgröße und Anforderungen ab.<br><br>
+                    <strong>Richtwert:</strong> Für 3–5 Sales-Hires/Jahr liegt die Investition bei ~15.000 EUR (Jahr 1).<br><br>
+                    Im kostenlosen Strategiegespräch rechnen wir gemeinsam durch, ob sich die Suite für dich rechnet.
+                </div>
+            </div>
+
+            <button onclick="openModal()" class="pricing-cta">Kostenloses Strategiegespräch buchen</button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-content">
+            <h2>Häufige Fragen</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Ist das ein SaaS-Tool?</div>
+                <div class="faq-answer">Nein. Es ist eine Kombination aus System, Methodik und persönlichem Support. Kein Login-Portal, das du alleine bedienst.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Für wen ist die Suite nichts?</div>
+                <div class="faq-answer">Für Teams, die weniger als 2 Sales-Hires pro Jahr machen. Für diese Frequenz reicht die DNA-Analyse.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Wie lange dauert das Setup?</div>
+                <div class="faq-answer">2 Wochen bis Go-Live. Onboarding deines Teams: 2 Stunden.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Was ist, wenn es nicht passt?</div>
+                <div class="faq-answer">Genau dafür gibt es das kostenlose Strategiegespräch. Wir sagen dir ehrlich, ob sich die Suite für dich rechnet.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Verhindere die nächste Fehlbesetzung.</h2>
+        <p class="final-cta-text">
+            Buche ein kostenloses Strategiegespräch. Wir rechnen gemeinsam durch, ob sich die Suite für dich rechnet.
+        </p>
+        <button onclick="openModal()" class="final-cta-button">Strategiegespräch buchen (kostenlos)</button>
+    </section>
+
+    <!-- Modal -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Strategiegespräch buchen</h2>
+            
+            <form id="inquiryForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Unternehmen *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hires">Wie viele Sales-Hires macht ihr pro Jahr? *</label>
+                    <input type="text" id="hires" name="hires" placeholder="z.B. 3-5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="challenge">Größte Herausforderung beim Sales-Hiring?</label>
+                    <textarea id="challenge" name="challenge" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Strategiegespräch anfragen</button>
+                
+                <div id="formSuccess" class="form-success">
+                    Danke! Wir melden uns innerhalb von 24h für einen Termin.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('inquiryForm').reset();
+            document.getElementById('formSuccess').classList.remove('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            document.getElementById('formSuccess').classList.add('active');
+            
+            const subject = 'Suite Strategiegespräch Anfrage';
+            const body = `
+Name: ${data.name}
+E-Mail: ${data.email}
+Unternehmen: ${data.company}
+Sales-Hires/Jahr: ${data.hires}
+
+Größte Herausforderung:
+${data.challenge || 'Nicht angegeben'}
+            `;
+            
+            window.location.href = `mailto:privacy@salesbrothersconnect.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            setTimeout(() => closeModal(), 2000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('inquiryModal');
+            if (event.target === modal) closeModal();
+        }
+    </script>
+
+</body>
+</html>

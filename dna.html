@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA-Analyse für 149 EUR – Verhindere eine 50.000 EUR Fehlentscheidung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-teal: #1a3a4a;
+            --teal-dark: #0f2833;
+            --orange: #e85a30;
+            --orange-light: #ff6b42;
+            --orange-dark: #d14a22;
+            --cream: #f8f6f3;
+            --white: #ffffff;
+            --gray-100: #f4f4f5;
+            --gray-200: #e4e4e7;
+            --gray-600: #52525b;
+            --gray-800: #27272a;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--orange);
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .sticky-bar.visible {
+            display: block;
+        }
+
+        .sticky-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-text {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .sticky-cta {
+            background: white;
+            color: var(--orange);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--orange-light);
+        }
+
+        .hero-price {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--orange-light);
+            margin: 2rem 0;
+            text-shadow: 0 4px 20px rgba(232, 90, 48, 0.4);
+        }
+
+        .hero-vs {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 2rem 0;
+            font-weight: 600;
+        }
+
+        .hero-risk {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--red);
+            text-decoration: line-through;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta {
+            background: var(--orange);
+            color: white;
+            padding: 1.8rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 50px rgba(232, 90, 48, 0.6);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(232, 90, 48, 0.7);
+        }
+
+        .hero-guarantee {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Problem */
+        .problem {
+            background: var(--red);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .problem-list {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin: 2rem 0;
+        }
+
+        .problem-list li {
+            margin-bottom: 1rem;
+            list-style: none;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .problem-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        /* What You Get */
+        .what-you-get {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .what-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .what-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .how-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        /* Real Case */
+        .real-case {
+            background: var(--gray-800);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .case-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .case-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        .case-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .case-author {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1rem;
+        }
+
+        /* Urgency */
+        .urgency {
+            background: var(--orange);
+            padding: 4rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .urgency-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .urgency h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .urgency-text {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .urgency-cta {
+            background: white;
+            color: var(--orange);
+            padding: 1.8rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .urgency-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta-price {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--orange-light);
+            margin: 2rem 0;
+        }
+
+        .final-cta-button {
+            background: var(--orange);
+            color: white;
+            padding: 1.8rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 50px rgba(232, 90, 48, 0.6);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .final-guarantee {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--orange);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: var(--green);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        @media (max-width: 968px) {
+            .benefits-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Bar -->
+    <div class="sticky-bar" id="stickyBar">
+        <div class="sticky-content">
+            <div class="sticky-text">149 EUR – Verhindere eine 50.000 EUR Fehlentscheidung</div>
+            <button onclick="openModal()" class="sticky-cta">Jetzt kaufen</button>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Du stehst vor einer <span class="highlight">finalen Einstellungsentscheidung?</span>
+            </h1>
+            
+            <div class="hero-price">149 EUR</div>
+            <div class="hero-vs">verhindert</div>
+            <div class="hero-risk">50.000 EUR Fehler</div>
+
+            <button onclick="openModal()" class="hero-cta">DNA-Analyse jetzt kaufen</button>
+            <div class="hero-guarantee">✓ Klarer Report in 48h · Keine Vertragsbindung</div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem">
+        <div class="problem-content">
+            <h2>Was du NICHT siehst, bevor du unterschreibst</h2>
+            <ul class="problem-list">
+                <li>Ob der Kandidat wirklich verkaufen WILL (nicht nur kann)</li>
+                <li>Ob er unter Druck performt oder zusammenbricht</li>
+                <li>Ob sein Drive echte Motivation ist oder Show</li>
+                <li>Ob er nach 3 Monaten noch da ist</li>
+            </ul>
+            <p style="font-size: 1.4rem; text-align: center; margin-top: 2rem; font-weight: 700;">
+                Das CV zeigt es nicht. Das Interview auch nicht.
+            </p>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="what-you-get">
+        <div class="what-content">
+            <h2>Was du für 149 EUR bekommst</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-title">Sales-DNA Analyse</div>
+                    <div class="benefit-desc">Motivation, Drive, Belastbarkeit – gemessen, nicht geschätzt</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">Entscheidungs-Report</div>
+                    <div class="benefit-desc">Klare Empfehlung: Einstellen oder ablehnen</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">Benchmarking</div>
+                    <div class="benefit-desc">Vergleich mit Top-Performern in deiner Branche</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">48h Turnaround</div>
+                    <div class="benefit-desc">Schnell genug für finale Entscheidungen</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button onclick="openModal()" class="hero-cta">Jetzt für 149 EUR kaufen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="how-content">
+            <h2>So funktioniert's</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Kaufen</div>
+                    <div class="step-desc">149 EUR – sofortiger Zugang</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Link senden</div>
+                    <div class="step-desc">Kandidat bekommt 10-Min-Assessment</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Entscheiden</div>
+                    <div class="step-desc">Klarer Report in 48h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Case -->
+    <section class="real-case">
+        <div class="case-content">
+            <h2>Echter Fall</h2>
+            <div class="case-quote">
+                "Der Kandidat hatte 10 Jahre Erfahrung, perfektes CV, sympathisches Interview. Die DNA-Analyse zeigte: Kein Drive unter Druck. Wir haben abgelehnt. 4 Monate später war er bei einem Wettbewerber wieder raus. 149 EUR haben uns 50.000+ EUR gespart."
+            </div>
+            <div class="case-author">— Head of Sales, SaaS-Unternehmen</div>
+        </div>
+    </section>
+
+    <!-- Urgency -->
+    <section class="urgency">
+        <div class="urgency-content">
+            <h2>Du hast einen Kandidaten in der Finalrunde?</h2>
+            <p class="urgency-text">
+                Jeder Tag Unsicherheit kostet dich. Entweder machst du den Fehler – oder du verpasst den richtigen Kandidaten.<br><br>
+                <strong>Beide Optionen kosten mehr als 149 EUR.</strong>
+            </p>
+            <button onclick="openModal()" class="urgency-cta">DNA-Analyse jetzt kaufen</button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-content">
+            <h2>Häufige Fragen</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Ist das ein Persönlichkeitstest?</div>
+                <div class="faq-answer">Nein. Wir messen Sales-relevante Faktoren: Motivation, Belastbarkeit, Drive. Keine Persönlichkeitsanalyse.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Was, wenn der Kandidat ablehnt?</div>
+                <div class="faq-answer">Dann hast du schon deine Antwort. Top-Kandidaten wollen zeigen, was sie können.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Was, wenn mir das Ergebnis nicht gefällt?</div>
+                <div class="faq-answer">Dann hast du gerade 50.000 EUR gespart.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Brauche ich ein Abo?</div>
+                <div class="faq-answer">Nein. 149 EUR einmalig. Fertig.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Triff keine 50.000 EUR Entscheidung ohne 149 EUR Sicherheit.</h2>
+        <div class="final-cta-price">149 EUR</div>
+        <button onclick="openModal()" class="final-cta-button">DNA-Analyse jetzt kaufen</button>
+        <div class="final-guarantee">✓ Report in 48h · Keine Vertragsbindung · Sofortiger Zugang</div>
+    </section>
+
+    <!-- Modal -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>DNA-Analyse kaufen – 149 EUR</h2>
+            
+            <form id="inquiryForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Unternehmen *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position (für die du einstellst)</label>
+                    <input type="text" id="position" name="position" placeholder="z.B. Senior Sales Manager">
+                </div>
+
+                <button type="submit" class="form-submit">Jetzt für 149 EUR kaufen</button>
+                
+                <div id="formSuccess" class="form-success">
+                    Danke! Du bekommst sofort Zugang per E-Mail.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sticky bar on scroll
+        window.addEventListener('scroll', function() {
+            const stickyBar = document.getElementById('stickyBar');
+            if (window.scrollY > 800) {
+                stickyBar.classList.add('visible');
+            } else {
+                stickyBar.classList.remove('visible');
+            }
+        });
+
+        function openModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('inquiryForm').reset();
+            document.getElementById('formSuccess').classList.remove('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            document.getElementById('formSuccess').classList.add('active');
+            
+            const subject = 'DNA-Analyse Kauf – 149 EUR';
+            const body = `
+Name: ${data.name}
+E-Mail: ${data.email}
+Unternehmen: ${data.company}
+Position: ${data.position || 'Nicht angegeben'}
+
+Produkt: DNA-Analyse (149 EUR)
+            `;
+            
+            window.location.href = `mailto:privacy@salesbrothersconnect.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            setTimeout(() => closeModal(), 2000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('inquiryModal');
+            if (event.target === modal) closeModal();
+        }
+    </script>
+
+</body>
+</html>

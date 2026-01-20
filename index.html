@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesHiring.io – Jede falsche Sales-Einstellung kostet dich 50.000 €</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-teal: #1a3a4a;
+            --teal-dark: #0f2833;
+            --orange: #e85a30;
+            --orange-light: #ff6b42;
+            --orange-dark: #d14a22;
+            --cream: #f8f6f3;
+            --white: #ffffff;
+            --gray-100: #f4f4f5;
+            --gray-200: #e4e4e7;
+            --gray-600: #52525b;
+            --gray-800: #27272a;
+            --green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        /* Navigation - RADIKAL VEREINFACHT */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(248, 246, 243, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26, 58, 74, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            height: 45px;
+        }
+
+        .nav-cta {
+            background: var(--orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(232, 90, 48, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(232, 90, 48, 0.45);
+        }
+
+        /* Hero Section - HÄRTER, KLARER */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 2rem 6rem;
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(ellipse, rgba(232, 90, 48, 0.12) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            color: white;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--orange-light);
+            display: block;
+            margin-top: 0.3em;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .hero-cta-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 1.6rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 45px rgba(232, 90, 48, 0.65);
+            margin-bottom: 1.2rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-primary:hover {
+            background: var(--orange-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(232, 90, 48, 0.7);
+        }
+
+        .cta-subtext {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+        }
+
+        /* Problem Section - HÄRTER */
+        .problem-section {
+            background: var(--gray-800);
+            padding: 7rem 2rem;
+        }
+
+        .problem-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-content h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: white;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .problem-list {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            line-height: 2;
+        }
+
+        .problem-list li {
+            margin-bottom: 0.8rem;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .problem-list li::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            margin-right: 1rem;
+            border-radius: 50%;
+        }
+
+        .problem-result {
+            font-size: 1.4rem;
+            color: var(--orange);
+            font-weight: 700;
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .stats-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-value {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Solution Section - RADIKAL VEREINFACHT */
+        .solution-section {
+            padding: 7rem 2rem;
+            background: white;
+        }
+
+        .solution-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .step-title {
+            font-size: 1.6rem;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+
+        .step-desc {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* DNA Analysis Section - DER STAR */
+        .dna-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            position: relative;
+        }
+
+        .dna-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dna-content h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .dna-subheadline {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .dna-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .dna-cta-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .price-highlight {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--orange);
+            font-family: 'Archivo', sans-serif;
+            margin-bottom: 1.5rem;
+        }
+
+        /* DNA Packs Section */
+        .packs-section {
+            padding: 7rem 2rem;
+            background: var(--cream);
+        }
+
+        .packs-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .pack-card {
+            background: white;
+            padding: 3.5rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(26, 58, 74, 0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange);
+            box-shadow: 0 30px 80px rgba(26, 58, 74, 0.18);
+        }
+
+        .pack-name {
+            font-size: 2rem;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .pack-quantity {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .pack-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--orange);
+            font-family: 'Archivo', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .pack-usecase {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .pack-cta {
+            display: block;
+            background: var(--orange);
+            color: white;
+            padding: 1.3rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .pack-cta:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Suite Section - ALS VERSICHERUNG */
+        .suite-section {
+            padding: 7rem 2rem;
+            background: white;
+        }
+
+        .suite-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .suite-subheadline {
+            font-size: 1.4rem;
+            color: var(--gray-800);
+            margin-bottom: 3rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .suite-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            text-align: left;
+        }
+
+        .suite-benefit {
+            padding: 2rem;
+            background: var(--gray-100);
+            border-radius: 16px;
+        }
+
+        .suite-benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .suite-benefit-text {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .suite-cta {
+            display: inline-block;
+            background: var(--deep-teal);
+            color: white;
+            padding: 1.3rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .suite-cta:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        .suite-note {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Social Proof - EHRLICH */
+        .social-proof-section {
+            padding: 7rem 2rem;
+            background: var(--gray-100);
+        }
+
+        .social-proof-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(26, 58, 74, 0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .testimonial-author {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+        }
+
+        /* FAQ - NUR KAUFBLOCKER */
+        .faq-section {
+            padding: 7rem 2rem;
+            background: white;
+        }
+
+        .faq-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.4rem;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* Final CTA Section */
+        .final-cta-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-dark) 100%);
+        }
+
+        .final-cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .final-cta-content h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: white;
+            margin-bottom: 3.5rem;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-cta-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 1.4rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(232, 90, 48, 0.6);
+            border: none;
+            cursor: pointer;
+        }
+
+        .final-cta-primary:hover {
+            background: var(--orange-light);
+            transform: translateY(-3px);
+        }
+
+        .final-cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 1.4rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem 2rem;
+            background: var(--gray-800);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--orange);
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: var(--green);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 968px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dna-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .packs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .suite-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-box {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation - NUR LOGO + CTA -->
+    <nav>
+        <div class="nav-container">
+            <img src="logo.png" alt="SalesHiring.io" class="nav-logo">
+            <button onclick="openModal('single')" class="nav-cta">1 Kandidat testen – 149 EUR</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section - HÄRTER -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Jede falsche Sales-Einstellung
+                <span class="highlight">kostet dich 50.000 EUR.</span>
+            </h1>
+            
+            <p class="hero-subheadline">
+                Wir zeigen dir vor der Einstellung, ob ein Kandidat wirklich verkaufen kann.
+            </p>
+
+            <div class="hero-cta-box">
+                <button onclick="openModal('single')" class="cta-primary">1 Kandidat testen – 149 EUR</button>
+                <p class="cta-subtext">Klarer Entscheidungs-Report · Keine Vertragsbindung</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section - UNBEQUEM EHRLICH -->
+    <section class="problem-section">
+        <div class="problem-content">
+            <h2>Warum Sales-Hiring fast immer schiefgeht</h2>
+            
+            <ul class="problem-list">
+                <li>CVs zeigen Erfahrung – nicht Motivation</li>
+                <li>Interviews testen Sympathie – nicht Drive</li>
+                <li>Referenzen sind gefiltert</li>
+                <li>Bauchgefühl ist kein Auswahlkriterium</li>
+            </ul>
+
+            <p class="problem-result">
+                Das Ergebnis: Fehlbesetzungen, Umsatzverlust, Fluktuation.
+            </p>
+
+            <div class="stats-box">
+                <div>
+                    <div class="stat-value">6 Monate</div>
+                    <div class="stat-label">Time-to-Performance</div>
+                </div>
+                <div>
+                    <div class="stat-value">50.000 EUR+</div>
+                    <div class="stat-label">Kosten pro Fehlbesetzung</div>
+                </div>
+                <div>
+                    <div class="stat-value">Hoch</div>
+                    <div class="stat-label">Fluktuation im Vertrieb</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section - RADIKAL VEREINFACHT -->
+    <section class="solution-section">
+        <div class="solution-content">
+            <h2 class="section-title">Treffe Einstellungsentscheidungen mit Fakten – nicht mit Hoffnung</h2>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Kandidat analysieren</h3>
+                    <p class="step-desc">Sales-DNA, Motivation, Drive.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Kandidaten vergleichen</h3>
+                    <p class="step-desc">Objektive Benchmarks statt Meinungen.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Sicher entscheiden</h3>
+                    <p class="step-desc">Einstellen oder ablehnen – bevor es teuer wird.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DNA Analysis Section - DER STAR (2x auf der Seite) -->
+    <section class="dna-section" id="dna">
+        <div class="dna-content">
+            <h2>Finalrunde? Teste den Kandidaten, bevor du unterschreibst.</h2>
+            <p class="dna-subheadline">
+                <strong>149 EUR für Klarheit.<br>
+                50.000 EUR für eine Fehlentscheidung.</strong>
+            </p>
+            <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Die meisten Fehlentscheidungen werden im letzten Bauchgefühl-Moment getroffen.
+            </p>
+
+            <div class="dna-benefits">
+                <div class="benefit-item">10 Minuten Aufwand</div>
+                <div class="benefit-item">Klarer Entscheidungs-Report</div>
+                <div class="benefit-item">Keine Vertragsbindung</div>
+                <div class="benefit-item">Für finale Kandidaten</div>
+            </div>
+
+            <div class="dna-cta-box">
+                <div class="price-highlight">149 EUR</div>
+                <button onclick="openModal('single')" class="cta-primary">1 Kandidat testen – 149 EUR</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- DNA Packs Section -->
+    <section class="packs-section">
+        <div class="packs-content">
+            <h2 class="section-title">Für Teams, die mehrere Kandidaten vergleichen</h2>
+
+            <div class="packs-grid">
+                <div class="pack-card">
+                    <h3 class="pack-name">Starter Pack</h3>
+                    <p class="pack-quantity">5 Analysen</p>
+                    <div class="pack-price">490 EUR</div>
+                    <p class="pack-usecase">Für 1–2 Positionen</p>
+                    <button onclick="openModal('starter')" class="pack-cta">DNA-Paket wählen</button>
+                </div>
+
+                <div class="pack-card">
+                    <h3 class="pack-name">Hiring Pack</h3>
+                    <p class="pack-quantity">10 Analysen</p>
+                    <div class="pack-price">890 EUR</div>
+                    <p class="pack-usecase">Für regelmäßiges Screening</p>
+                    <button onclick="openModal('hiring')" class="pack-cta">DNA-Paket wählen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suite Section - ALS VERSICHERUNG -->
+    <section class="suite-section">
+        <div class="suite-content">
+            <h2 class="section-title">Für alle, die mehr als 1–2 Sales-Hires pro Jahr machen</h2>
+            <p class="suite-subheadline">
+                Die Suite ist keine Software.<br>
+                Sie ist eine Versicherung gegen Fehlbesetzungen.
+            </p>
+            <p style="font-size: 1.15rem; color: var(--orange); font-weight: 600; margin-bottom: 3rem;">
+                Ab 2–3 Einstellungen pro Jahr rechnet sich die Suite sofort.
+            </p>
+
+            <div class="suite-benefits">
+                <div class="suite-benefit">
+                    <div class="suite-benefit-title">Vergleich statt Bauchgefühl</div>
+                    <div class="suite-benefit-text">Objektive Metriken für jeden Kandidaten</div>
+                </div>
+
+                <div class="suite-benefit">
+                    <div class="suite-benefit-title">Sicherheit für Entscheider</div>
+                    <div class="suite-benefit-text">Reduziertes Risiko bei jeder Einstellung</div>
+                </div>
+
+                <div class="suite-benefit">
+                    <div class="suite-benefit-title">Klarheit für das Team</div>
+                    <div class="suite-benefit-text">Nachvollziehbare Entscheidungen</div>
+                </div>
+            </div>
+
+            <button onclick="openModal('suite')" class="suite-cta">Suite für Viel-Einsteller ansehen</button>
+        </div>
+    </section>
+
+    <!-- Social Proof - EHRLICH -->
+    <section class="social-proof-section">
+        <div class="social-proof-content">
+            <h2 class="section-title">Was Kunden sagen, nachdem sie eine Fehlbesetzung vermieden haben</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Ohne die DNA-Analyse hätten wir ihn eingestellt."</p>
+                    <p class="testimonial-author">— Vertriebsleiter, Tech-Startup</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Der Kandidat hatte 10 Jahre Erfahrung und ein perfektes CV. Die DNA-Analyse zeigte fehlenden Drive. Wir haben uns dagegen entschieden – 4 Monate später war er bei einem Wettbewerber wieder raus."</p>
+                    <p class="testimonial-author">— Head of Sales, SaaS</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Wir haben eine Entscheidung revidiert – zum Glück."</p>
+                    <p class="testimonial-author">— CEO, Scale-up</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ - NUR KAUFBLOCKER -->
+    <section class="faq-section">
+        <div class="faq-content">
+            <h2 class="section-title">FAQ</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Ist das ein Persönlichkeitstest?</h3>
+                    <p class="faq-answer">Nein. Wir messen entscheidungsrelevante Sales-Faktoren – nicht Charakter.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Ersetzt das Interviews?</h3>
+                    <p class="faq-answer">Nein. Es ergänzt sie dort, wo Interviews versagen.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Für wen ist SalesHiring.io nichts?</h3>
+                    <p class="faq-answer">Für alle, die weiter nach Bauchgefühl einstellen wollen.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Was, wenn mir das Ergebnis nicht gefällt?</h3>
+                    <p class="faq-answer">Dann hast du gerade sehr viel Geld gespart.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="final-cta-content">
+            <h2>Triff keine Sales-Entscheidung mehr ohne Sicherheit.</h2>
+
+            <div class="final-cta-buttons">
+                <button onclick="openModal('single')" class="final-cta-primary">1 Kandidat testen – 149 EUR</button>
+                <button onclick="openModal('suite')" class="final-cta-secondary">Suite für Viel-Einsteller ansehen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="SalesHiring.io">
+                <p>Datenbasierte Einstellungs-Entscheidungen für Teams, die keine Fehlbesetzungen mehr wollen.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Produkte</h4>
+                <ul>
+                    <li><a href="#dna">DNA-Analysen</a></li>
+                    <li><a href="#dna">DNA Packs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Unternehmen</h4>
+                <ul>
+                    <li><a href="mailto:privacy@salesbrothersconnect.com">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                    <li><a href="agb.html">AGB</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 SalesBrothers Connect s.r.o. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Anfrage stellen</h2>
+            
+            <form id="inquiryForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Unternehmen</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="package">Gewünschtes Paket *</label>
+                    <select id="package" name="package" required>
+                        <option value="">Bitte wählen</option>
+                        <option value="single">1 Kandidat – 149 EUR</option>
+                        <option value="starter">Starter Pack – 490 EUR</option>
+                        <option value="hiring">Hiring Pack – 890 EUR</option>
+                        <option value="suite">Suite (Individuelles Angebot)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" placeholder="Weitere Details zu Ihrer Anfrage..."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Anfrage absenden</button>
+                
+                <div id="formSuccess" class="form-success">
+                    Vielen Dank! Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(packageType) {
+            const modal = document.getElementById('inquiryModal');
+            const packageSelect = document.getElementById('package');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            if (packageType === 'single') {
+                packageSelect.value = 'single';
+                modalTitle.textContent = 'Anfrage: 1 Kandidat testen';
+            } else if (packageType === 'starter') {
+                packageSelect.value = 'starter';
+                modalTitle.textContent = 'Anfrage: Starter Pack';
+            } else if (packageType === 'hiring') {
+                packageSelect.value = 'hiring';
+                modalTitle.textContent = 'Anfrage: Hiring Pack';
+            } else if (packageType === 'suite') {
+                packageSelect.value = 'suite';
+                modalTitle.textContent = 'Anfrage: Suite';
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('inquiryForm').reset();
+            document.getElementById('formSuccess').classList.remove('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            document.getElementById('formSuccess').classList.add('active');
+            
+            const subject = `Neue Anfrage: ${data.package}`;
+            const body = `
+Name: ${data.name}
+E-Mail: ${data.email}
+Unternehmen: ${data.company || 'Nicht angegeben'}
+Paket: ${data.package}
+
+Nachricht:
+${data.message || 'Keine weitere Nachricht'}
+            `;
+            
+            window.location.href = `mailto:privacy@salesbrothersconnect.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            setTimeout(() => closeModal(), 2000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('inquiryModal');
+            if (event.target === modal) closeModal();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>
