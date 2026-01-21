@@ -186,7 +186,98 @@
             margin-top: 1rem;
         }
 
-        /* Problem Section - HÄRTER */
+
+        /* Dual Path in Hero */
+        .hero-dual-path {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 2rem;
+        }
+
+        .hero-path {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .hero-path:hover {
+            transform: translateY(-5px);
+            border-color: var(--orange);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .path-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            background: rgba(232, 90, 48, 0.1);
+            color: var(--orange);
+        }
+
+        .path-badge.popular {
+            background: rgba(59, 130, 246, 0.15);
+            color: #2563eb;
+        }
+
+        .path-title {
+            font-size: 1.6rem;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .path-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .sdr-path .path-price {
+            color: #2563eb;
+        }
+
+        .path-desc {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .sdr-cta {
+            background: #2563eb !important;
+            box-shadow: 0 12px 45px rgba(37, 99, 235, 0.5) !important;
+        }
+
+        .sdr-cta:hover {
+            background: #1d4ed8 !important;
+        }
+
+        .hero-path .cta-primary {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-dual-path {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        
+                /* Problem Section - HÄRTER */
         .problem-section {
             background: var(--gray-800);
             padding: 7rem 2rem;
@@ -380,7 +471,180 @@
             margin-bottom: 1.5rem;
         }
 
-        /* DNA Packs Section */
+
+        /* SDR Decision Package Section */
+        .sdr-section {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sdr-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+        }
+
+        .sdr-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+
+        .sdr-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .sdr-content h2 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .sdr-subheadline {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .sdr-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .sdr-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .sdr-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .sdr-feature:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .sdr-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sdr-feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .sdr-feature-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sdr-cta-box {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .sdr-price-highlight {
+            font-size: 5rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'Archivo', sans-serif;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sdr-price-note {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .sdr-cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 1.6rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+
+        .sdr-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .sdr-guarantee {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sdr-usecase {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 968px) {
+            .sdr-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sdr-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+                /* DNA Packs Section */
         .packs-section {
             padding: 7rem 2rem;
             background: var(--cream);
@@ -545,7 +809,65 @@
             margin: 0 auto;
         }
 
-        .testimonials-grid {
+
+        /* Client Logos */
+        .client-logos {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 3rem;
+            margin: 3rem auto 4rem;
+            max-width: 1100px;
+            align-items: center;
+        }
+
+        .client-logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-height: 80px;
+        }
+
+        .client-logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 58, 74, 0.15);
+        }
+
+        .client-logo {
+            max-width: 100%;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo-item:hover .client-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @media (max-width: 968px) {
+            .client-logos {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .client-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        
+                .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
@@ -1014,7 +1336,60 @@
         </div>
     </section>
 
-    <!-- DNA Packs Section -->
+
+    <!-- SDR Decision Package Section -->
+    <section class="sdr-section" id="sdr">
+        <div class="sdr-content">
+            <div class="sdr-badge">NEU</div>
+            <h2>Du musst JETZT 1-3 SDRs einstellen?</h2>
+            <p class="sdr-subheadline">
+                <strong>SDR Decision Package – Sichere Entscheidung in 48h</strong>
+            </p>
+            <p class="sdr-description">
+                Wenn du unter Zeitdruck hirest, brauchst du keine endlosen Prozesse.<br>
+                Du brauchst eine schnelle, fundierte Entscheidung.
+            </p>
+
+            <div class="sdr-features-grid">
+                <div class="sdr-feature">
+                    <div class="sdr-feature-icon">👥</div>
+                    <div class="sdr-feature-title">Bis zu 3 Kandidaten</div>
+                    <div class="sdr-feature-desc">Parallel testen & direkt vergleichen</div>
+                </div>
+
+                <div class="sdr-feature">
+                    <div class="sdr-feature-icon">⚡</div>
+                    <div class="sdr-feature-title">48h Entscheidung</div>
+                    <div class="sdr-feature-desc">Kompletter Vergleichs-Report</div>
+                </div>
+
+                <div class="sdr-feature">
+                    <div class="sdr-feature-icon">📋</div>
+                    <div class="sdr-feature-title">Interview-Leitfaden</div>
+                    <div class="sdr-feature-desc">Strukturierte Fragen inklusive</div>
+                </div>
+
+                <div class="sdr-feature">
+                    <div class="sdr-feature-icon">✓</div>
+                    <div class="sdr-feature-title">Klare Empfehlung</div>
+                    <div class="sdr-feature-desc">Wen einstellen, wen ablehnen</div>
+                </div>
+            </div>
+
+            <div class="sdr-cta-box">
+                <div class="sdr-price-highlight">1.250 EUR</div>
+                <p class="sdr-price-note">Einmalig für bis zu 3 Kandidaten</p>
+                <button onclick="openModal('sdr')" class="sdr-cta-button">SDR Package jetzt anfragen</button>
+                <p class="sdr-guarantee">✓ 48h Turnaround · Interview-Leitfaden inklusive · Vergleichs-Report</p>
+            </div>
+
+            <div class="sdr-usecase">
+                <strong>Ideal für:</strong> Teams mit akutem SDR/BDR-Bedarf, die schnell zwischen 2-3 finalen Kandidaten entscheiden müssen
+            </div>
+        </div>
+    </section>
+
+        <!-- DNA Packs Section -->
     <section class="packs-section">
         <div class="packs-content">
             <h2 class="section-title">Für Teams, die mehrere Kandidaten vergleichen</h2>
@@ -1076,6 +1451,30 @@
     <section class="social-proof-section">
         <div class="social-proof-content">
             <h2 class="section-title">Was Kunden sagen, nachdem sie eine Fehlbesetzung vermieden haben</h2>
+
+            <!-- Client Logos -->
+            <div class="client-logos">
+                <div class="client-logo-item">
+                    <img src="client-helpling.jpg" alt="Helpling" class="client-logo">
+                </div>
+                <div class="client-logo-item">
+                    <img src="client-timify.jpg" alt="Timify" class="client-logo">
+                </div>
+                <div class="client-logo-item">
+                    <img src="client-homeday.png" alt="Homeday" class="client-logo">
+                </div>
+                <div class="client-logo-item">
+                    <img src="client-localhero.jpg" alt="Local Hero" class="client-logo">
+                </div>
+                <div class="client-logo-item">
+                    <img src="client-onyo.png" alt="Onyo" class="client-logo">
+                </div>
+                <div class="client-logo-item">
+                    <img src="client-ypulse.png" alt="YPulse" class="client-logo">
+                </div>
+            </div>
+
+            
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -1201,7 +1600,8 @@
                     <label for="package">Gewünschtes Paket *</label>
                     <select id="package" name="package" required>
                         <option value="">Bitte wählen</option>
-                        <option value="single">1 Kandidat – 149 EUR</option>
+                        <option value="dna">DNA-Test – 149 EUR</option>
+                        <option value="sdr">SDR Decision Package – 1.250 EUR</option>
                         <option value="starter">Starter Pack – 490 EUR</option>
                         <option value="hiring">Hiring Pack – 890 EUR</option>
                         <option value="suite">Suite (Individuelles Angebot)</option>
@@ -1228,9 +1628,15 @@
             const packageSelect = document.getElementById('package');
             const modalTitle = document.getElementById('modalTitle');
             
-            if (packageType === 'single') {
-                packageSelect.value = 'single';
-                modalTitle.textContent = 'Anfrage: 1 Kandidat testen';
+            if (packageType === 'dna') {
+                packageSelect.value = 'dna';
+                modalTitle.textContent = 'Anfrage: DNA-Test (149 EUR)';
+            } else if (packageType === 'sdr') {
+                packageSelect.value = 'sdr';
+                modalTitle.textContent = 'Anfrage: SDR Decision Package (1.250 EUR)';
+            } else if (packageType === 'single') {
+                packageSelect.value = 'dna';
+                modalTitle.textContent = 'Anfrage: DNA-Test (149 EUR)';
             } else if (packageType === 'starter') {
                 packageSelect.value = 'starter';
                 modalTitle.textContent = 'Anfrage: Starter Pack';
